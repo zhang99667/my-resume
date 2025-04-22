@@ -1,0 +1,150 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
+
+\documentclass{resume}
+\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+\usepackage{linespacing_fix} % disable extra space before next section
+\usepackage{cite}
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\name{张震}
+% {E-mail}{mobilephone}{homepage}
+% be careful of _ in emaill address
+\contactInfo{(+86) 17600804803}{zhangz1728@126.com}{后端研发工程师}{}
+% {E-mail}{mobilephone}
+% keep the last empty braces!
+%\contactInfo{xxx@yuanbin.me}{(+86) 131-221-87xxx}{}
+
+% 照片（右上角）
+\photo{./photo/photo.jpg}
+
+% \section{\faGraduationCap\ 教育背景}
+\section{教育背景}
+\datedsubsection{\textbf{兰州理工大学},计算机技术,\textit{硕士}}{2022.9 - 2025.6}
+全日制, 计算机与通信学院, CAA Student member
+% \datedsubsection{\textbf{北京理工大学},软件工程,\textit{工学学士}}{2011.9 - 2015.6}
+% \ \textbf{排名2/62(前5\%)},国家励志奖学金,人民奖学金(7次),科技竞赛奖(2次),北京市普通高等学校优秀毕业生,北京理工大学优秀毕业生,软件学院金牌毕业生,优秀团员/优秀学生(5次)
+% \datedsubsection{\textbf{荷兰 莱顿大学},计算机科学与技术,\textit{国家留学基金委公派交换生}}{2015.3 - 2015.5}
+% \ 2014年中国政府奖学金(\textit{http://www.csc.edu.cn/}),DID-ACTE项目交换生(\textit{http://did-acte.org/})
+
+% \section{\faCogs\ IT 技能}
+\section{技术能力}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.2ex]
+  \item 具备扎实的\textbf{Java基础}, 熟悉常用集合\textbf{ArrayList、HashMap}等底层原理, 熟悉基本的\textbf{数据结构与算法}
+  \item 熟悉JUC掌握volatile、synchronized的使用以及CAS、线程池等相关知识
+  \item 熟悉JVM运行时内存区域、引用类型、垃圾回收算法、类加载过程等
+  \item 熟练使用\textbf{Spring、SpringMVC、MyBatis与MyBatisPlus}等主流开发框架以及\textbf{使用SpringBoot整合第三方框架}, 了解\textbf{IOC、AOP原理}
+  \item 熟练使用\textbf{MySQL关系型数据库}, 了解MySQL常见的知识, 如锁、事务、索引等。熟悉SQL语句编写, 了解常见的SQL优化
+  \item 熟练使用\textbf{非关系型数据库Redis}, 了解\textbf{缓存雪崩、缓存穿透、缓存击穿}、持久化方式等
+  \item 熟练使用Maven、Git等工具。熟练使用Swagger、Apifox、Postman等工具进行接口测试, 熟悉Restful风格接口开发
+  \item 熟悉\textbf{Linux常用指令}, 可以在Linux上\textbf{搭建开发环境和项目部署}
+  \item \textbf{常用编程语言}: Java~\,/\,~Kotlin~\,/\,~Python
+\end{itemize}
+
+\section{实习经历}
+\datedsubsection{\textbf{百度在线网络技术（北京）有限公司}}{2024.12-2025.4}
+\role{客户端开发工程师}{}
+
+\datedsubsection{\textbf{Android组件管理代码优化}}{}
+\textbf{需求背景：}针对组件样式互斥逻辑进行解耦和规范管理，并解决单例持有HashMap可能出现的内存溢出问题。
+\begin{onehalfspacing}
+  \begin{itemize}
+    \item 定义了统一的组件实现规范接口，强制各组件遵循优先级规则，以保证组件展示的互斥性和一致性。
+    \item 引入组件管理器，将原本分散管理的组件整合至统一的组件管理器，优化了组件间的互斥与交互逻辑，提升了系统的可维护性。
+    \item 将单例持有的HashMap改为依赖界面生命周期进行管理，排除可能导致的内存泄漏问题，增强系统稳定性。
+  \end{itemize}
+\end{onehalfspacing}
+
+% \datedsubsection{双端产品需求 - IAA短剧激励解锁广告}{}
+% \begin{onehalfspacing}
+%   \begin{itemize}
+%     \item 利用结巴分词对中国古文进行分词与词性标注
+%     \item 利用已有领域知识训练形成 classifier, 并用分词结果进行测试反馈
+%     \item 尝试不同规则，对 classifier 进行调优
+%   \end{itemize}
+% \end{onehalfspacing}
+
+\datedsubsection{\textbf{WebView预加载与预渲染技术优化}}{}
+\textbf{需求背景：}提升广告页面加载速度、减少用户等待时间，优化WebView预加载和预渲染流程，提高用户体验。
+\begin{onehalfspacing}
+  \begin{itemize}
+    \item 利用LinkedList创建WebView复用池，减少WebView初始化时长，由大约300ms降低至大约70ms。
+    \item 设计包含准备、生产、消费、复用、销毁五种状态的生命周期模型，高效管理WebView复用池及实例。
+    \item 使用Kotlin多线程与IdleHandler，实现空闲时通过后台线程创建WebView，避免阻塞主线程。
+  \end{itemize}
+\end{onehalfspacing}
+
+\section{项目经历}
+\datedsubsection{\textbf{高性能RPC框架}}{}
+\textbf{项目介绍：}基于Java和Netty实现的高性能RPC框架。通过注解和配置文件快速使用框架，像本地调用一样调用远程服务。实现了负载均衡、重试和容错策略，支持HTTP和自定义协议、SPI动态扩展和后台统计。\\
+\textbf{技术架构：}
+\techlist{SpringBoot, Netty, ZooKeeper, SpringMVC, MySQL}
+\begin{onehalfspacing}
+  \begin{itemize}
+    \item 基于Netty实现提供者和消费者间的高性能网络通信, 并对原有处理器进行增强解决了\textbf{半包粘包问题}。
+    \item 使用本地对象维护服务提供者节点缓存, 减少与注册中心通信次数, 并\textbf{使用idle监听节点的过期自动更新本地缓存}, 提高了服务查询效率。
+    \item 提供了\textbf{一致性Hash、轮询、随机等负载均衡算法}, 提高了提供者集群处理能力。
+    \item 基于Guava Retrying实现了fixedWait等多种\textbf{重试机制}, 在\textbf{容错机制}上设计了FailOver、FailBack等多种重试策略。
+    \item 使用类Dubbo的紧凑型消息结构实现\textbf{自定义RPC协议}, 提升网络传输性能。并且原生支持HTTP协议。
+    \item 利用\textbf{SPI机制}提供了高可扩展的序列化器、负载均衡、重试重错机制和注册中心支持。
+    \item 使用\textbf{基于注解驱动的SpringBoot Starter}封装了提供者和消费者的启动类。
+  \end{itemize}
+\end{onehalfspacing}
+
+\vspace{2mm}  % 添加2毫米的垂直间距
+
+\datedsubsection{\textbf{多导经络动态智能检测系统}}{}
+\textbf{项目介绍：}多导经络动态智能检测系统是一个针对医疗服务提供商的高度集成化的医疗健康监测平台，根据动态监测人体的奇经八脉和十二正经给出合理的医疗判断，实现了对用户健康数据的实时动态监测，提高了医疗判断的准确性。同时，平台提供了对个人开放的可移动经络检测设备等的购买服务，相应的也会提供对应的优惠券进行力度折扣。\\
+\textbf{技术架构：}
+\techlist{SpringBoot, MybatisPlus, Redisson, SpringSecurity, JWT, SpringTask, MQ}
+\begin{onehalfspacing}
+  \\
+  \textbf{用户认证与授权：}
+  \begin{itemize}
+    \item 使用Spring Security+JWT对登录用户进行认证鉴权, 并通过Redis存储鉴权信息, 实现安全可靠的会话控制。
+    \item 通过\textbf{Filter和Interceptor分离验证和刷新Token策略}, 通过\textbf{责任链模式}增强代码模块化和可维护性。
+  \end{itemize}
+
+  \textbf{经络检测结果处理：}
+  \begin{itemize}
+    \item 利用\textbf{反射机制动态封装和解析经络检测结果}, 提高代码的通用性和灵活性, 适应多种数据格式和多种检测设备。
+    \item 使用AOP+注解的方式对数据持久化操作中的\textbf{公共字段自动填充}, 减少代码冗余, 提高开发效率。
+  \end{itemize}
+
+  \textbf{优惠券发放与高并发处理：}
+  \begin{itemize}
+    \item 使用Redis实现\textbf{分布式全局唯一ID生成器}, 确保设备下单过程中系统各模块ID的唯一性。
+    结合Redisson分布式锁和MySQL乐观锁, 在\textbf{解决优惠券超抢问题}并\textbf{实现一人一单}的情况下, 进一步提升并发处理能力。
+    
+  \end{itemize}
+  \textbf{异步处理与系统性能优化：}
+  \begin{itemize}
+    \item 通过Redis对优惠券进行\textbf{预减库存}, 减少数据库压力, 同时利用ConcurrentHashMap和Redis多级缓存提升缓存命中率, 进一步缓解了数据库和Redis压力。
+    \item 通过RabbitMQ进行\textbf{异步下单, 实现削峰填谷}, 提高系统响应速度, 性能由200qps提升至600qps。
+  \end{itemize}
+\end{onehalfspacing}
+
+
+% \section{\faInfo\ 社会实践/其他}
+\section{科研经历}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.2ex]
+  \item The Influence of Opinion Leaders on Public Opinion Spread and Control Strategies in Online Social Networks. (SCI 二区，DOI: 10.1109/TCSS.2025.3537701)
+  \item Information propagation under the coupling of behavioral and influential propagation (SCI 三区，审稿中)
+  \item 基于大数据的“人肉搜索”建模、分析与控制，国家自然科学地区基金(No.61863025)
+  \item 网络信息相变及其传播动力学特征分析研究，国家自然科学地区基金(No.62266030)
+\end{itemize}
+
+\section{个人简介}
+拥有较强的学习能力、文档阅读能力和适应能力，热爱编程，热爱生活，积极乐观，爱好广泛。
+
+%% Reference
+%\newpage
+%\bibliographystyle{IEEETran}
+%\bibliography{mycite}
+\end{document}
