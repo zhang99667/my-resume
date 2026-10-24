@@ -35,3 +35,13 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# macOS
+.DS_Store
+
+# LaTeX
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.out
+*.toc

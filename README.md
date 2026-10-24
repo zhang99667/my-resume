@@ -2,6 +2,11 @@
 
 本项目为个人简历 Latex 源码存放，同时包含效果图呈现，简历入口为 resume-zh_CN.tex， 修改自项目 [resume](https://github.com/billryan/resume/)，若不想本地手动编译可以将该源码打包至 zip 直接上传至 ShareLatex 进行在线编译与预览。
 
+## 版本历史
+
+- 当前版本（v2，2026-10-24 起）：源码与最新 PDF 在仓库根目录，即 `resume-zh_CN.tex` / `resume-zh_CN.pdf`；快照见 `versions/v2-2026-10-24.pdf`。
+- 历史版本：PDF 存档在 [versions/](./versions/)，含逐版时间线与回溯命令；v1 为 2025-04-22 的初始版本。
+
 ## 项目说明
 
 一个优雅的 \LaTeX\ 简历模板, 使用 \XeLaTeX\ 编译, 因为受不了古老的`res`和不太适合作为一页纸简历的`moderncv`, 遂自己动手写了这个模板， 受以下项目启发：
