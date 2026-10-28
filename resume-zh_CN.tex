@@ -30,40 +30,40 @@
 \section{工作经历}
 \datedsubsection{\textbf{百度在线网络技术（北京）有限公司}}{2025.7 - 至今}
 \role{客户端开发工程师}{}
-负责落地页、激励视频与 AI 工程化方向开发。
+负责落地页、激励视频和 AI 工程化方向
 
-\datedsubsection{\textbf{落地页}}{}
+\datedsubsection{\textbf{半屏落地页 SDK 化（落地页，25Q3）}}{}
 \begin{onehalfspacing}
+  把散落在多条产品线的 H5 半屏容器收敛为一个可跨宿主复用的统一 SDK，并在此基础上打通预渲染。
   \begin{itemize}
-    \item \textbf{广告落地页容器}：深入理解落地页容器框架的调起、宿主与扩展机制，主导多套容器统一重构，统一页面调起与容器能力，新业务接入复用同一容器。
-    \item \textbf{预渲染}：针对落地页首屏等待问题，设计点击前预加载、点击后复用实例的预渲染链路，未命中自动回退普通加载；半屏场景预渲染生效比例由 66\% 提升至 99.6\%。
-    \item \textbf{半屏落地页框架}：基于统一容器落地半屏形态，复用主容器与预渲染能力，支持半屏内跳转、下载、拖拽关闭等交互（获 2026Q1 百度小赞·重大项目）。
+    \item \textbf{容器架构统一}：三套容器各自实现，协议与能力互不复用；SDK 又依赖宿主完整工程，因此无法独立演进。将三套容器收敛为统一 SDK：通过 \texttt{compileOnly} 声明宿主能力约定，运行期由宿主注入实现，做到编译期解耦、运行期复用宿主已有能力；打通浏览框架生命周期与商业插件链路，并通过物料协议兼容层兼容历史差异，存量物料无需改动即可接入。统一后，新能力只需在 SDK 中实现一次，容器维护由三套收敛为一套，后续业务接入无需重复改造。（获 2026Q1 百度小赞·重大项目）
+
+    \item \textbf{预渲染适配（成功率 0\% → 72\%）}：旧容器不在宿主统一链路上，预渲染池取不到实例，成功率长期为 0。迁移后接管池查找、实例复用与命中日志整条链路，补齐匹配失败时的降级与埋点，成功率提升至 72\%；命中场景下，首屏 P80 降低 700ms，页面到达 PV 提升约 6\%（以 JS 加载完成作为判定统计口径）。
   \end{itemize}
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{激励视频}}{}
+\datedsubsection{\textbf{激励视频 - 26Q1}}{}
 \begin{onehalfspacing}
   \begin{itemize}
     \item \textbf{激励视频组件化重构}：针对单页面逻辑集中的问题，将播放、倒计时、任务、弹窗、UI 等按职责拆分为可复用组件，页面只做编排、组件间通过统一接口通信，降低耦合，提升迭代与复用效率。
-    \item \textbf{弹窗体系改造}：统一激励视频弹窗管理，覆盖领奖、挽留、转化引导等多类弹窗，支持自定义布局样式；处理弹窗与播放、倒计时的联动及展示优先级、频控，保障完播与领奖链路，并解决相关内存泄漏问题。
+    \item \textbf{弹窗优先级管理}：激励视频弹窗的展示时机与互斥关系原先分散在各自实现里，同时满足条件时会叠加、该弹的被压掉。改为注册时声明优先级、互斥组和降级链，由管理器统一决定展示顺序：冲突按优先级让路、展示失败自动降级、状态随页面生命周期复位。改造后新增弹窗只需注册、不用再改展示链路；叠加与漏弹从机制上消除，状态残留也不再依赖人工复位。
   \end{itemize}
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{AI 工程化改造}}{}
+\datedsubsection{\textbf{AI 工程化改造 - 26Q1}}{}
 \begin{onehalfspacing}
   \begin{itemize}
-    \item \textbf{团队 Agent 插件体系}：跟进 Agent 生态前沿，从 0 搭建团队 Agent 插件仓库框架（rules、skills、plugins、memory 四层资产）。提出插件化维护方式，并适配 Claude Code、Codex、厂内 agent 开发工具等多个宿主，支撑资产版本化分发、安装与回滚。
+    \item \textbf{团队 Agent 插件体系}：跟进 Agent 生态前沿，从 0 搭建团队 Agent 插件仓库框架（rules、skills、plugins、memory 四层资产）。提出插件化维护方式，并适配 Claude Code、Codex、厂内 agent 开发工具等多个宿主，支撑资产版本化分发、安装与回滚。(获 2026Q3 百度小赞·AI 工程化先锋)
     \item \textbf{Harness 资产指标}：建设团队 Harness 资产指标插件，多 runtime hooks 采集与事件归一化，按 Skill 聚合调用次数、耗时、成功率并日报上报，为 AI 工具效果评估与资产迭代提供数据支撑。
     \item \textbf{团队 Agent Workspace（提出、主导，推进中）}：面向项目组织 Agent 研发所需的长期操作空间——五层资产（代码、知识、环境、工具、流程）+ 三平面（上下文、能力、治理）+ 四项治理边界（Repo 路由、事实 Owner、权限边界、发布节奏）；稳定资产经 Owner 评审发布，任务现场只回写经 Review 的增量。
   \end{itemize}
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{通用组件建设}}{}
+\datedsubsection{\textbf{通用组件建设 - 26Q2}}{}
 \begin{onehalfspacing}
   \begin{itemize}
-    \item \textbf{通用按钮统一}：作为负责人统一多业务按钮实现与接入规范，推动通用按钮在多场景扩覆盖、统一按钮出口；推动通用按钮模型下沉 lib\_core，降低多业务重复开发成本；主导实验与 LR 协同，实验验证大盘持平、CVR +0.10\%。
-    \item \textbf{多宿主依赖隔离}：针对不同宿主对 PAG 等三方能力支持不一致的问题，设计依赖隔离与自动降级方案（宿主具备 PAG 时走实现、缺失时自动降级），避免构建与运行风险。
-    \item \textbf{组件与弹窗优先级管理（SDK 化）}：抽象统一的优先级模型与互斥裁决机制，组件与弹窗注册时声明优先级与互斥关系，由管理器统一裁决展示、关闭与降级顺序；设计通用接口与接入规范，把各业务重复的互斥逻辑收敛为 SDK 公共能力，并与激励视频弹窗优先级链、组件互斥治理统一为一套模型。
+    \item \textbf{PAG 多宿主依赖隔离}：针对不同宿主对 PAG 等三方能力支持不一致的问题，设计依赖隔离与自动降级方案（宿主具备 PAG 时走实现、缺失时自动降级），避免构建与运行风险。
+    \item \textbf{组件优先级管理}：抽象统一的优先级模型与互斥裁决机制，组件与弹窗注册时声明优先级与互斥关系，由管理器统一裁决展示、关闭与降级顺序；设计通用接口与接入规范，把各业务重复的互斥逻辑收敛为 SDK 公共能力。
   \end{itemize}
 \end{onehalfspacing}
 
@@ -119,7 +119,7 @@
 \end{itemize}
 
 \section{工作荣誉}
-\noindent 2026Q3 百度小赞 · \textbf{AI 工程化先锋}；2026Q1 百度小赞 · \textbf{落地页半屏重大项目}；2025Q4 季度 Award + 百度小赞 · \textbf{私信商业化（广告透传）}。
+\noindent 2026Q3 百度小赞 · \textbf{AI 工程化先锋}；2026Q1 百度小赞 · \textbf{重大项目}；2025Q4 季度 Award + 百度小赞 · \textbf{私信商业化}。
 
 %% Reference
 %\newpage
