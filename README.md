@@ -7,6 +7,14 @@
 - 当前版本（v2，2026-10-24 起）：源码与最新 PDF 在仓库根目录，即 `resume-zh_CN.tex` / `resume-zh_CN.pdf`；快照见 `versions/v2-2026-10-24.pdf`。
 - 历史版本：PDF 存档在 [versions/](./versions/)，含逐版时间线与回溯命令；v1 为 2025-04-22 的初始版本。
 
+## AI Agent 协作
+
+仓库内置 Agent 协作规范与门禁，改文案前先读：
+
+- [AGENTS.md](./AGENTS.md)：文案铁律（钩子原则、加粗规则、脱敏、长度）、修改工作流
+- [CLAUDE.md](./CLAUDE.md)：Claude Code 入口（指向 AGENTS.md）
+- 门禁：`bash scripts/check.sh`（XeLaTeX 编译两遍 + 校验 2 页/无缺字/无 Overfull）
+
 ## 项目说明
 
 一个优雅的 \LaTeX\ 简历模板, 使用 \XeLaTeX\ 编译, 因为受不了古老的`res`和不太适合作为一页纸简历的`moderncv`, 遂自己动手写了这个模板， 受以下项目启发：

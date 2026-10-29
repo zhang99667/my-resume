@@ -23,3 +23,6 @@ endif
 
 clean:
 	$(RM) *.log *.aux *.bbl *.blg *.synctex.gz *.out *.toc *.lof *.idx *.ilg *.ind *.fls *.fdb_latexmk *.pdf
+
+check:
+	bash scripts/check.sh
