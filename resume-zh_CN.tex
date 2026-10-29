@@ -52,17 +52,17 @@
 \datedsubsection{\textbf{AI 工程化改造 - 26Q1}}{}
 \begin{onehalfspacing}
   \begin{itemize}
-    \item \textbf{团队 Agent 插件体系}：跟进 Agent 生态前沿，从 0 搭建团队 Agent 插件仓库框架（rules、skills、plugins、memory 四层资产）。提出插件化维护方式，并适配 Claude Code、Codex、厂内 agent 开发工具等多个宿主，支撑资产版本化分发、安装与回滚。(获 2026Q3 百度小赞·AI 工程化先锋)
-    \item \textbf{Harness 资产指标}：建设团队 Harness 资产指标插件，多 runtime hooks 采集与事件归一化，按 Skill 聚合调用次数、耗时、成功率并日报上报，为 AI 工具效果评估与资产迭代提供数据支撑。
-    \item \textbf{团队 Agent Workspace（提出、主导，推进中）}：面向项目组织 Agent 研发所需的长期操作空间——五层资产（代码、知识、环境、工具、流程）+ 三平面（上下文、能力、治理）+ 四项治理边界（Repo 路由、事实 Owner、权限边界、发布节奏）；稳定资产经 Owner 评审发布，任务现场只回写经 Review 的增量。
+    \item \textbf{团队 Agent 插件体系}：跟进 Agent 生态前沿，\textbf{从 0 搭建团队 Agent 插件仓库框架}（rules、skills、plugins、memory 四层资产）。提出插件化维护方式，并\textbf{适配 Claude Code、Codex、厂内 agent 开发工具等多个宿主}，支撑资产版本化分发、安装与回滚。(获 2026Q3 百度小赞·AI 工程化先锋)
+    \item \textbf{Harness 资产指标}：建设团队 Harness 资产指标插件，\textbf{多 runtime hooks 采集与事件归一化}，按 Skill 聚合调用次数、耗时、成功率并日报上报，为 AI 工具效果评估与资产迭代提供数据支撑。
+    \item \textbf{团队 Agent Workspace（提出、主导，推进中）}：Agent 研发缺一个团队级工作空间，任务、上下文、Agent 配置和执行记录散在各处。\textbf{设计项目级 Workspace}：把 Agent 当团队成员放进同一空间——任务是工作单位、每次执行留运行记录，\textbf{记录与执行分离}（平台管协调、本机运行时执行）；上下文分层（工作区长期约定 / 任务内一次性说明），Skill 与 Agent 配置跨项目复用。
   \end{itemize}
 \end{onehalfspacing}
 
 \datedsubsection{\textbf{通用组件建设 - 26Q2}}{}
 \begin{onehalfspacing}
   \begin{itemize}
-    \item \textbf{PAG 多宿主依赖隔离}：针对不同宿主对 PAG 等三方能力支持不一致的问题，设计依赖隔离与自动降级方案（宿主具备 PAG 时走实现、缺失时自动降级），避免构建与运行风险。
-    \item \textbf{组件优先级管理}：抽象统一的优先级模型与互斥裁决机制，组件与弹窗注册时声明优先级与互斥关系，由管理器统一裁决展示、关闭与降级顺序；设计通用接口与接入规范，把各业务重复的互斥逻辑收敛为 SDK 公共能力。
+    \item \textbf{PAG 多宿主依赖隔离}：通用组件直接依赖 PAG，无 PAG 的宿主一开能力就可能编译失败或 inflate 崩。\textbf{把 PAG 从组件层剥离}——上层只依赖抽象接口、布局改用占位容器，按宿主是否具备 PAG 编入真实实现或空实现；两类构建都能过，组件主体功能不受影响。
+    \item \textbf{组件优先级管理}：各业务组件与弹窗各自判断展示时机和优先级，接入新场景要重写一遍互斥逻辑。\textbf{抽象统一的优先级模型与互斥判定}：注册时声明优先级与互斥关系，由管理器统一判定展示、关闭与降级顺序；视频流组件已接入，新场景只注册、不再改这套逻辑，互斥判断从多份收敛为一份。
   \end{itemize}
 \end{onehalfspacing}
 
@@ -109,9 +109,7 @@
   \item 具备扎实的\textbf{Java基础}, 熟悉常用集合\textbf{ArrayList、HashMap}等底层原理, 熟悉基本的\textbf{数据结构与算法}
   \item 熟悉JUC掌握volatile、synchronized的使用以及CAS、线程池等相关知识
   \item 熟悉JVM运行时内存区域、引用类型、垃圾回收算法、类加载过程等
-  \item 熟练使用\textbf{Spring、SpringMVC、MyBatis与MyBatisPlus}等主流开发框架以及\textbf{使用SpringBoot整合第三方框架}, 了解\textbf{IOC、AOP原理}
   \item 熟练使用\textbf{MySQL关系型数据库}, 了解MySQL常见的知识, 如锁、事务、索引等。熟悉SQL语句编写, 了解常见的SQL优化
-  \item 熟练使用\textbf{非关系型数据库Redis}, 了解\textbf{缓存雪崩、缓存穿透、缓存击穿}、持久化方式等
   \item 熟练使用Maven、Git等工具。熟练使用Swagger、Apifox、Postman等工具进行接口测试, 熟悉Restful风格接口开发
   \item 熟悉\textbf{Linux常用指令}, 可以在Linux上\textbf{搭建开发环境和项目部署}
   \item \textbf{常用编程语言}: Java~\,/\,~Kotlin~\,/\,~Python
