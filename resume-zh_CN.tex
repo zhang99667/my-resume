@@ -61,11 +61,9 @@
 \begin{onehalfspacing}
   \begin{itemize}
     \item \textbf{PAG 多宿主依赖隔离}：通用组件直接依赖 PAG，无 PAG 的宿主一开能力就可能编译失败或 inflate 崩。\textbf{把 PAG 从组件层剥离}——上层只依赖抽象接口、布局改用占位容器，按宿主是否具备 PAG 编入真实实现或空实现；两类构建都能过，组件主体功能不受影响。
-    \item \textbf{组件优先级管理}：各业务组件与弹窗各自判断展示时机和优先级，接入新场景要重写一遍互斥逻辑。\textbf{抽象统一的优先级模型与互斥判定}：注册时声明优先级与互斥关系，由管理器统一判定展示、关闭与降级顺序；视频流组件已接入，新场景只注册、不再改这套逻辑，互斥判断从多份收敛为一份。
   \end{itemize}
 \end{onehalfspacing}
 
-\newpage
 \datedsubsection{\textbf{私信商业化（2025Q4，获季度 Award、百度小赞）}}{}
 \begin{onehalfspacing}
   \begin{itemize}
