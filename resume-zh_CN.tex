@@ -60,7 +60,7 @@
 \datedsubsection{\textbf{通用组件建设 - 26Q2}}{}
 \begin{onehalfspacing}
   \begin{itemize}
-    \item \textbf{PAG 多宿主依赖隔离}：\textbf{把 PAG 从通用组件里剥离}——抽象接口、布局占位、双实现按宿主编译，无 PAG 的宿主也能接入，两类构建均通过。
+    \item \textbf{PAG 多宿主依赖隔离}：无 PAG 的宿主一旦开启通用组件，编译和 inflate 都有崩溃风险。\textbf{把 PAG 从组件层剥离}——抽象接口、布局占位、双实现编译；无 PAG 宿主可正常接入，两类构建均通过，组件主体功能不受影响。
   \end{itemize}
 \end{onehalfspacing}
 
